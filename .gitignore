@@ -17,6 +17,7 @@ spec/rails_app/log/*
 allow_me_gem-0.1.0.gem
 latest_specs.*
 prerelease_specs.*
-specs.*
+specs.4.8
+specs.4.8.gz
 
 TODO.txt
