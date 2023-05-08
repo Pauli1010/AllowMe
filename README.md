@@ -6,10 +6,11 @@ TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
-
-'rails generate allow_me_gem:install'
-
 Add this line to your application's Gemfile:
+```ruby
+gem 'allow_me_gem', git: 'https://github.com/Pauli1010/AllowMe', branch: 'main'
+```
+
 
 ```ruby
 gem 'allow_me_gem'
@@ -22,6 +23,11 @@ And then execute:
 Or install it yourself as:
 
     $ gem install allow_me_gem
+
+Initialize it with:
+    
+    $ rails generate allow_me_gem:install
+
 
 ## Usage
 
