@@ -1,0 +1,9 @@
+TODO list:
+[ ] - Generator - add translation files
+[ ] - Generator - add styles files
+[ ] - Roles - add rest of the CRUD
+[ ] - Roles - tests
+[ ] -
+[ ] -
+[ ] -
+[ ] -

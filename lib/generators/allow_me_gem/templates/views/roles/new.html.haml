@@ -1,0 +1,10 @@
+= simple_form_for @role, url: admin_roles_path, method: :post, scope: :user, class: 'simple_form form-horizontal', data: { turbo: "false" } do |f|
+  .card
+    .card-header= t('.header')
+    .card-body
+      .row
+        .col-sm-7
+          = f.input :name
+          = f.input :description
+        .col-sm-5
+          = f.submit
