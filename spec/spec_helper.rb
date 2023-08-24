@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "allow_me_gem"
+require "allow_me"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

@@ -1,6 +1,6 @@
-# AllowMeGem
+# AllowMe
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/allow_me_gem`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/allow_me`. To experiment with that code, run `bin/console` for an interactive prompt.
 
 TODO: Delete this and the text above, and describe your gem
 
@@ -8,12 +8,12 @@ TODO: Delete this and the text above, and describe your gem
 
 Add this line to your application's Gemfile:
 ```ruby
-gem 'allow_me_gem', git: 'https://github.com/Pauli1010/AllowMe', branch: 'main'
+gem 'allow_me', git: 'https://github.com/Pauli1010/AllowMe', branch: 'main'
 ```
 
 
 ```ruby
-gem 'allow_me_gem'
+gem 'allow_me'
 ```
 
 And then execute:
@@ -22,11 +22,11 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install allow_me_gem
+    $ gem install allow_me
 
 Initialize it with:
     
-    $ rails generate allow_me_gem:install
+    $ rails generate allow_me:install
 
 
 ## Usage
@@ -41,7 +41,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/allow_me_gem. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/allow_me_gem/blob/main/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/allow_me. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/allow_me/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 
@@ -49,4 +49,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the AllowMeGem project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/allow_me_gem/blob/main/CODE_OF_CONDUCT.md).
+Everyone interacting in the AllowMe project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/allow_me/blob/main/CODE_OF_CONDUCT.md).

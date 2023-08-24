@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-RSpec.describe AllowMeGem do
+RSpec.describe AllowMe do
   it "has a version number" do
-    expect(AllowMeGem::VERSION).not_to be nil
+    expect(AllowMe::VERSION).not_to be nil
   end
 
   xit "does something useful" do
