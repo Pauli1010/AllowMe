@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AllowMe
   module Controller
     module Config
@@ -10,9 +12,9 @@ module AllowMe
 
         def init!
           @defaults = {
-            :@user_classes                         => nil,
-            :@submodules                           => [],
-            :@role_class                           => nil
+            :@user_classes => nil,
+            :@submodules => [],
+            :@role_class => nil
           }
         end
 
@@ -38,7 +40,7 @@ module AllowMe
         end
 
         def configure!
-          @configure_blk.call(self) if @configure_blk
+          @configure_blk&.call(self)
         end
       end
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AllowMe
   module Generators
     module Helpers

@@ -19,7 +19,6 @@ module AllowMe
         end
 
         module InstanceMethods
-
         end
       end
     end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails/generators/migration'
 require 'generators/allow_me/helpers'
 
@@ -7,7 +9,7 @@ module AllowMe
       include Rails::Generators::Migration
       include AllowMe::Generators::Helpers
 
-      source_root File.expand_path("templates", __FILE__)
+      source_root File.expand_path(__dir__)
 
       argument :submodules, optional: true, type: :array, banner: 'submodules'
       argument :models, optional: true, type: :array, banner: 'models'
@@ -22,11 +24,11 @@ module AllowMe
         # Add submodules to the initializer file.
         return unless submodules
 
-        submodule_names = submodules.collect { |submodule| ':' + submodule }
+        submodule_names = submodules.collect { |submodule| ":#{submodule}" }
 
         gsub_file allow_me_config_path, /submodules = \[.*\]/ do |str|
           current_submodule_names = (str =~ /\[(.*)\]/ ? Regexp.last_match(1) : '').delete(' ').split(',')
-          "submodules = [#{(current_submodule_names | submodule_names).join(', ')}]"
+          "submodules = [#{(current_submodule_names | submodule_names).join(", ")}]"
         end
       end
 
@@ -64,7 +66,8 @@ module AllowMe
         return unless defined?(ActiveRecord)
 
         # Role migration
-        migration_template 'migration/allow_me.rb', 'db/migrate/allow_me.allow_me_core.rb', migration_class_name: migration_class_name
+        migration_template 'migration/allow_me.rb', 'db/migrate/allow_me.allow_me_core.rb',
+                           migration_class_name: migration_class_name
       end
 
       def inject_allow_me_to_role_controllers
@@ -72,15 +75,13 @@ module AllowMe
       end
 
       def create_view
-        return
         # FIXME: add in controller to look for default view from AllowMe
-        template 'views/roles/new.html.haml', 'app/views/admin/roles/new.html.haml'
+        # template 'views/roles/new.html.haml', 'app/views/admin/roles/new.html.haml'
       end
 
       def add_routes
-        return
         # FIXME: check for current routing and add accordingly
-        route needed_routing
+        # route needed_routing
       end
 
       def needed_routing

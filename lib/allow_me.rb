@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "allow_me/version"
+require_relative 'allow_me/version'
 
 module AllowMe
   class Error < StandardError; end
