@@ -20,4 +20,5 @@ prerelease_specs.*
 specs.4.8
 specs.4.8.gz
 
+.idea
 TODO.txt
