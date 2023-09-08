@@ -11,16 +11,24 @@ module AllowMe
 
       # Either return the models passed in a classified form or return the default ["User"].
       def model_class_names
-        options[:models] ? options[:models].map(&:classify) : ['User']
+        default_user_model? ? ['User'] : options[:models].map(&:classify)
+      end
+
+      def default_user_model?
+        options[:models].blank?
       end
 
       # Either return the models passed in a classified form or return the default 'Admin/Role'
       def role_class_name
-        options[:role] ? options[:role].classify : 'Admin/Role'
+        default_role_class? ? 'Role' : options[:role].classify
       end
 
       def role_related_models
         [role_class_name]
+      end
+
+      def default_role_class?
+        options[:role].blank?
       end
 
       def tableized_model_class(model_class_name)
@@ -28,7 +36,7 @@ module AllowMe
       end
 
       def model_path(model_class_name)
-        @model_path ||= File.join('app', 'models', "#{file_path(model_class_name)}.rb")
+        File.join('app', 'models', "#{file_path(model_class_name)}.rb")
       end
 
       def file_path(model_class_name)

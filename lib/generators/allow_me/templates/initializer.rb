@@ -10,5 +10,5 @@ Rails.application.config.allow_me.submodules = []
 Rails.application.config.allow_me.configure do |config|
   config.user_config do |user|
   end
-  config.user_classes = '<%= model_class_names %>'
+  config.user_classes = <%= model_class_names %>
 end

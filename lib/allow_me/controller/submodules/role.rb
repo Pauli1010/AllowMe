@@ -19,6 +19,9 @@ module AllowMe
         end
 
         module InstanceMethods
+          def assign_users!(role, users)
+            role.users = users
+          end
         end
       end
     end

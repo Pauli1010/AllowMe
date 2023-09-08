@@ -17,7 +17,7 @@ module AllowMe
 
       # Copy the initializer file to config/initializers folder.
       def copy_initializer_file
-        template 'initializer.rb', allow_me_config_path
+        template 'templates/initializer.rb', allow_me_config_path
       end
 
       def configure_initializer_file
@@ -32,32 +32,35 @@ module AllowMe
         end
       end
 
+      # Generate User model - or model(s) based on name passed while initializing gem -
+      # and call injecting method on them
       def configure_model
-        # Generate the model and add 'authenticates_with_sorcery!' unless you passed --only-submodules
-        return if basic_generator?
-
         model_class_names.each do |model_class_name|
           generate "model #{model_class_name} --skip-migration"
-          inject_allow_me_to_model(model_class_name)
         end
       end
 
-      def inject_allow_me_to_model(model_class_name)
-        indents = '  ' * (namespaced? ? 2 : 1)
+      # Inject allow_me_to_permit! method to User model(s)
+      def inject_allow_me_to_models
+        model_class_names.each do |model_class_name|
+          indents = '  ' * (namespaced? ? 2 : 1)
 
-        inject_into_class(model_path(model_class_name), model_class_name, "#{indents}allow_me_to_permit!\n")
+          inject_into_class(model_path(model_class_name), model_class_name, "#{indents}allow_me_to_permit!\n")
+        end
       end
 
+      # Generate Admin/Role model - or model(s) based on data passed while initializing gem -
+      # and other needed role handling models, and call injecting method on them
       def configure_roles
         role_related_models.each do |model|
           generate "model #{model} --skip-migration"
         end
       end
 
-      def inject_allow_me_to_role_models(model_class_name)
+      def inject_allow_me_to_role_models
         indents = '  ' * (namespaced? ? 2 : 1)
 
-        inject_into_class(model_path(model_class_name), model_class_name, "#{indents}allow_me_to_permit!\n")
+        inject_into_class(model_path(role_class_name), role_class_name, "#{indents}allow_me_to_rule!\n")
       end
 
       # Copy the migrations files to db/migrate folder
@@ -66,8 +69,7 @@ module AllowMe
         return unless defined?(ActiveRecord)
 
         # Role migration
-        migration_template 'migration/allow_me.rb', 'db/migrate/allow_me.allow_me_core.rb',
-                           migration_class_name: migration_class_name
+        migration_template 'templates/migration/allow_me.rb', 'db/migrate/allow_me.allow_me_core.rb'
       end
 
       def inject_allow_me_to_role_controllers
